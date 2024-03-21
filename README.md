@@ -24,3 +24,8 @@ Este repositório contém dois programas em Python para encriptar e decriptar ar
 ## Avisos
 - Certifique-se de fazer backup dos arquivos importantes antes de usar estes programas, pois os arquivos serão alterados irreversivelmente.
 - Mantenha a chave de criptografia em um local seguro e não a compartilhe com ninguém que você não confie.
+
+## To Do
+
+- Criar a funcao para decriptar os nomes dos arquivos.
+- Criar validacoes se os caminhos de fato existem.
