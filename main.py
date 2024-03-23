@@ -1,12 +1,15 @@
-from src.encrypt import encrypt_and_delete_files_in_directory
-from src.decrypt import decrypt_and_delete_files_in_directory
+from src.encrypt_file import encrypt_and_delete_files_in_directory
+from src.decrypt_file import decrypt_and_delete_files_in_directory
 from src.utils import verify_if_path_exists
 from src.utils import generate_key
 from src.utils import clear_terminal
+from src.utils import load_key
+from src.encrypt_file_name import rename_files_in_directory
 
-print('1 - Encriptar')
-print('2 - Decriptar')
-print('3 - Gerar chave fernet')
+print('1 - Encriptar Arquivos')
+print('2 - Decriptar Arquivos')
+print('3 - Encriptar Nomes')
+print('4 - Gerar chave fernet')
 decision = input('-> ')
 
 if decision == '1':
@@ -40,6 +43,16 @@ elif decision == '2':
         print("Arquivos descriptografados com sucesso!")
 
 elif decision == '3':
+    clear_terminal()
+
+    key_path = input('Digite o caminho para a chave: ')
+    key = load_key(key_path)
+
+    directory_path = input('Digite o caminho para a pasta que deseja encriptar: ')
+    rename_files_in_directory(directory_path, key)
+    print("Nomes criptografados com sucesso!")
+
+elif decision == '4':
     clear_terminal()
     print(generate_key())
 
