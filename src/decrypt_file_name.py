@@ -9,6 +9,6 @@ def decrypt_filename(key, encrypted_filename):
 def decrypt_file_names_in_directory(directory, key):
     for filename in os.listdir(directory):
         full_path = os.path.join(directory, filename)
-        if os.path.isfile(full_path):  # Verifica se é um arquivo
+        if os.path.isfile(full_path):
             decrypted_filename = decrypt_filename(key, filename)
             os.rename(full_path, os.path.join(directory, decrypted_filename))

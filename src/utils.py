@@ -7,7 +7,7 @@ def verify_if_path_exists(path):
         return True
     return False
 
-def clear_terminal():
+def clear_console():
     os.system('clear')
 
 def generate_key(key_path):
