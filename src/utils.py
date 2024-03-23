@@ -17,8 +17,8 @@ def load_key(key_file):
     if os.path.exists(key_file):
         with open(key_file, 'rb') as f:
             return f.read()
-    else:
-        key = generate_key()
-        with open(key_file, 'wb') as f:
-            f.write(key)
-        return key
+    # else:
+    #     key = generate_key()
+    #     with open(key_file, 'wb') as f:
+    #         f.write(key)
+    #     return key
