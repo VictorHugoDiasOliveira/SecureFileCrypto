@@ -17,73 +17,78 @@ from src.interface import form
 KEY_PATH = '/home/mamada/Documents/Secure/key.txt'
 ENCRYPTED_KEY_PATH = '/home/mamada/Documents/Secure/key.txt.enc'
 
-decision = form()
+while True:
+    decision = form()
+    match decision:
+        case '1':
+            clear_console()
+            directory_path = input("Digite o caminho para a pasta que deseja criptografar: ")
+            if verify_if_path_exists(directory_path):
+                key = input("Digite a chave AES (16, 24 ou 32 bytes): ").encode('utf-8')
+                if len(key) not in [16, 24, 32]:
+                    print("A chave precisa ter 16, 24 ou 32 bytes.")
+                else:
+                    encrypt_and_delete_files_in_directory(directory_path, key)
+                    print("Arquivos criptografados com sucesso!")
+            else:
+                print('Pasta nao encontrada.')
 
-match decision:
-    case '1':
-        clear_console()
-        directory_path = input("Digite o caminho para a pasta que deseja criptografar: ")
-        if verify_if_path_exists(directory_path):
+        case '2':
+            clear_console()
+            directory_path = input("Digite o caminho para a pasta que deseja descriptografar: ")
+            if verify_if_path_exists(directory_path):
+                key = input("Digite a chave AES (16, 24 ou 32 bytes): ").encode('utf-8')
+                if len(key) not in [16, 24, 32]:
+                    print("A chave precisa ter 16, 24 ou 32 bytes.")
+                else:
+                    decrypt_and_delete_files_in_directory(directory_path, key)
+                    print("Arquivos descriptografados com sucesso!")
+            else:
+                print('Pasta nao encontrada.')
+
+        case '3':
+            clear_console()
+            key = load_key(KEY_PATH)
+            directory_path = input('Digite o caminho para a pasta que deseja encriptar: ')
+            encrypt_file_names_in_directory(directory_path, key)
+            print("Nomes criptografados com sucesso!")
+
+        case '4':
+            clear_console()
+            key = load_key(KEY_PATH)
+            directory_path = input('Digite o caminho para a pasta que deseja decriptar: ')
+            decrypt_file_names_in_directory(directory_path, key)
+            print("Nomes decriptografados com sucesso!")
+
+        case '5':
+            clear_console()
+            if verify_if_path_exists(KEY_PATH):
+                print('Chave ja existente.')
+            else:
+                generate_key(KEY_PATH)
+
+        case '6':
+            clear_console()
             key = input("Digite a chave AES (16, 24 ou 32 bytes): ").encode('utf-8')
             if len(key) not in [16, 24, 32]:
                 print("A chave precisa ter 16, 24 ou 32 bytes.")
             else:
-                encrypt_and_delete_files_in_directory(directory_path, key)
-                print("Arquivos criptografados com sucesso!")
-        else:
-            print('Pasta nao encontrada.')
+                encrypt_and_delete_file(KEY_PATH, key)
+                print("Chave criptografada com sucesso!")
 
-    case '2':
-        clear_console()
-        directory_path = input("Digite o caminho para a pasta que deseja descriptografar: ")
-        if verify_if_path_exists(directory_path):
+        case '7':
+            clear_console()
             key = input("Digite a chave AES (16, 24 ou 32 bytes): ").encode('utf-8')
             if len(key) not in [16, 24, 32]:
                 print("A chave precisa ter 16, 24 ou 32 bytes.")
             else:
-                decrypt_and_delete_files_in_directory(directory_path, key)
-                print("Arquivos descriptografados com sucesso!")
-        else:
-            print('Pasta nao encontrada.')
+                decrypt_and_delete_file(ENCRYPTED_KEY_PATH, key)
+                print("Chave criptografada com sucesso!")
 
-    case '3':
-        clear_console()
-        key = load_key(KEY_PATH)
-        directory_path = input('Digite o caminho para a pasta que deseja encriptar: ')
-        encrypt_file_names_in_directory(directory_path, key)
-        print("Nomes criptografados com sucesso!")
+        case '0':
+            clear_console()
+            break
 
-    case '4':
-        clear_console()
-        key = load_key(KEY_PATH)
-        directory_path = input('Digite o caminho para a pasta que deseja decriptar: ')
-        decrypt_file_names_in_directory(directory_path, key)
-        print("Nomes decriptografados com sucesso!")
-
-    case '5':
-        clear_console()
-        if verify_if_path_exists(KEY_PATH):
-            print('Chave ja existente.')
-        else:
-            generate_key(KEY_PATH)
-
-    case '6':
-        clear_console()
-        key = input("Digite a chave AES (16, 24 ou 32 bytes): ").encode('utf-8')
-        if len(key) not in [16, 24, 32]:
-            print("A chave precisa ter 16, 24 ou 32 bytes.")
-        else:
-            encrypt_and_delete_file(KEY_PATH, key)
-            print("Chave criptografada com sucesso!")
-
-    case '7':
-        clear_console()
-        key = input("Digite a chave AES (16, 24 ou 32 bytes): ").encode('utf-8')
-        if len(key) not in [16, 24, 32]:
-            print("A chave precisa ter 16, 24 ou 32 bytes.")
-        else:
-            decrypt_and_delete_file(ENCRYPTED_KEY_PATH, key)
-            print("Chave criptografada com sucesso!")
-
-    case _:
-        print('Opcao invalida, finalizando programa...')
+        case _:
+            clear_console()
+            print('Opcao invalida.')
