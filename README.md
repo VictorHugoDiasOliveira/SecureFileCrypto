@@ -18,8 +18,6 @@ Este repositório contém dois programas em Python para encriptar e decriptar ar
 
 ## To Do
 
-- Fazer um loop para manter o programa rodando
-- Criar uma opcao para sair do loop
 - Fazer a costante do local da chave puxar o usuario
 - Verificar 2x a senha utilizada por seguranca
 - Adaptar para funcionar no windows
