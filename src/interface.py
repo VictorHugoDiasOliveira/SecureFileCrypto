@@ -6,4 +6,5 @@ def form():
     print('5 - Gerar chave')
     print('6 - Encriptar chave')
     print('7 - Decriptar chave')
+    print('0 - Sair')
     return input('-> ')
