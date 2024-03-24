@@ -12,18 +12,12 @@ from src.decrypt_file import (
     decrypt_and_delete_file)
 from src.encrypt_file_name import encrypt_file_names_in_directory
 from src.decrypt_file_name import decrypt_file_names_in_directory
+from src.interface import form
 
 KEY_PATH = '/home/mamada/Documents/Secure/key.txt'
 ENCRYPTED_KEY_PATH = '/home/mamada/Documents/Secure/key.txt.enc'
 
-print('1 - Encriptar Arquivos')
-print('2 - Decriptar Arquivos')
-print('3 - Encriptar Nomes')
-print('4 - Decriptar Nomes')
-print('5 - Gerar chave')
-print('6 - Encriptar chave')
-print('7 - Decriptar chave')
-decision = input('-> ')
+decision = form()
 
 match decision:
     case '1':
