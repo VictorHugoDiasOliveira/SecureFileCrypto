@@ -12,10 +12,13 @@ from src.decrypt_file import (
     decrypt_and_delete_file)
 from src.encrypt_file_name import encrypt_file_names_in_directory
 from src.decrypt_file_name import decrypt_file_names_in_directory
-from src.interface import form
+from src.interface import (
+    form,
+    two_steps_verification)
+import os
 
-KEY_PATH = '/home/mamada/Documents/Secure/key.txt'
-ENCRYPTED_KEY_PATH = '/home/mamada/Documents/Secure/key.txt.enc'
+KEY_PATH = f'/home/{os.getlogin()}/Documents/Secure/key.txt'
+ENCRYPTED_KEY_PATH = f'/home/{os.getlogin()}/Documents/Secure/key.txt.enc'
 
 while True:
     decision = form()
@@ -28,8 +31,11 @@ while True:
                 if len(key) not in [16, 24, 32]:
                     print("A chave precisa ter 16, 24 ou 32 bytes.")
                 else:
-                    encrypt_and_delete_files_in_directory(directory_path, key)
-                    print("Arquivos criptografados com sucesso!")
+                    if two_steps_verification(key):
+                        encrypt_and_delete_files_in_directory(directory_path, key)
+                        print("Arquivos criptografados com sucesso!")
+                    else:
+                        continue
             else:
                 print('Pasta nao encontrada.')
 
@@ -41,8 +47,11 @@ while True:
                 if len(key) not in [16, 24, 32]:
                     print("A chave precisa ter 16, 24 ou 32 bytes.")
                 else:
-                    decrypt_and_delete_files_in_directory(directory_path, key)
-                    print("Arquivos descriptografados com sucesso!")
+                    if two_steps_verification(key):
+                        decrypt_and_delete_files_in_directory(directory_path, key)
+                        print("Arquivos descriptografados com sucesso!")
+                    else:
+                        continue
             else:
                 print('Pasta nao encontrada.')
 
@@ -73,8 +82,11 @@ while True:
             if len(key) not in [16, 24, 32]:
                 print("A chave precisa ter 16, 24 ou 32 bytes.")
             else:
-                encrypt_and_delete_file(KEY_PATH, key)
-                print("Chave criptografada com sucesso!")
+                if two_steps_verification(key):
+                    encrypt_and_delete_file(KEY_PATH, key)
+                    print("Chave criptografada com sucesso!")
+                else:
+                    continue
 
         case '7':
             clear_console()
@@ -82,8 +94,11 @@ while True:
             if len(key) not in [16, 24, 32]:
                 print("A chave precisa ter 16, 24 ou 32 bytes.")
             else:
-                decrypt_and_delete_file(ENCRYPTED_KEY_PATH, key)
-                print("Chave criptografada com sucesso!")
+                if two_steps_verification(key):
+                    decrypt_and_delete_file(ENCRYPTED_KEY_PATH, key)
+                    print("Chave criptografada com sucesso!")
+                else:
+                    continue
 
         case '0':
             clear_console()

@@ -8,3 +8,17 @@ def form():
     print('7 - Decriptar chave')
     print('0 - Sair')
     return input('-> ')
+
+def two_steps_verification(password):
+    print(f'Tem certeza que deseja prosseguir com a senha utilizada: {password}')
+    print('1 - Sim')
+    print('2 - Nao')
+    decision = input('-> ')
+    match decision:
+        case '1':
+            return True
+        case '2':
+            return False
+        case _:
+            print('Opcao invalida, acao cancelada')
+            return False
