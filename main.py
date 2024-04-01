@@ -17,7 +17,7 @@ from src.interface import (
     two_steps_verification)
 import os
 
-KEY_PATH = f'/home/{os.getlogin()}/Documents/Secure/key.txt'
+KEY_PATH = f'/home/{os.getlogin()}/Documents/key.txt'
 ENCRYPTED_KEY_PATH = f'/home/{os.getlogin()}/Documents/Secure/key.txt.enc'
 
 while True:
