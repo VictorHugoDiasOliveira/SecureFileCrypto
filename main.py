@@ -14,7 +14,8 @@ from src.encrypt_file_name import encrypt_file_names_in_directory
 from src.decrypt_file_name import decrypt_file_names_in_directory
 from src.interface import (
     form,
-    two_steps_verification)
+    two_steps_verification,
+    select_path)
 import os
 
 KEY_PATH = f'/home/{os.getlogin()}/Documents/key.txt'
@@ -25,7 +26,8 @@ while True:
     match decision:
         case '1':
             clear_console()
-            directory_path = input("Digite o caminho para a pasta que deseja criptografar: ")
+            print("Selecione a pasta que deseja criptografar")
+            directory_path = select_path()
             if verify_if_path_exists(directory_path):
                 key = input("Digite a chave AES (16, 24 ou 32 bytes): ").encode('utf-8')
                 if len(key) not in [16, 24, 32]:
@@ -43,7 +45,8 @@ while True:
 
         case '2':
             clear_console()
-            directory_path = input("Digite o caminho para a pasta que deseja descriptografar: ")
+            print("Selecione a pasta que deseja descriptografar")
+            directory_path = select_path()
             if verify_if_path_exists(directory_path):
                 key = input("Digite a chave AES (16, 24 ou 32 bytes): ").encode('utf-8')
                 if len(key) not in [16, 24, 32]:
@@ -61,19 +64,29 @@ while True:
 
         case '3':
             clear_console()
-            key = load_key(KEY_PATH)
-            directory_path = input('Digite o caminho para a pasta que deseja encriptar: ')
-            encrypt_file_names_in_directory(directory_path, key)
-            clear_console()
-            print("Nomes criptografados com sucesso!")
+            if os.path.exists(KEY_PATH):
+                key = load_key(KEY_PATH)
+                print('Selecione a pasta que deseja encriptar os nomes')
+                directory_path = select_path()
+                encrypt_file_names_in_directory(directory_path, key)
+                clear_console()
+                print("Nomes criptografados com sucesso!")
+            else:
+                print("Crie uma chave primeiro.")
+                continue
 
         case '4':
             clear_console()
-            key = load_key(KEY_PATH)
-            directory_path = input('Digite o caminho para a pasta que deseja decriptar: ')
-            decrypt_file_names_in_directory(directory_path, key)
-            clear_console()
-            print("Nomes decriptografados com sucesso!")
+            if os.path.exists(KEY_PATH):
+                key = load_key(KEY_PATH)
+                print('Selecione a pasta que deseja decriptar os nomes')
+                directory_path = select_path()
+                decrypt_file_names_in_directory(directory_path, key)
+                clear_console()
+                print("Nomes decriptografados com sucesso!")
+            else:
+                print("Crie uma chave primeiro.")
+                continue
 
         case '5':
             clear_console()

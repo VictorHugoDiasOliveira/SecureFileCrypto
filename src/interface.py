@@ -1,3 +1,5 @@
+from tkinter import filedialog
+
 def form():
     print('1 - Encriptar Arquivos')
     print('2 - Decriptar Arquivos')
@@ -22,3 +24,6 @@ def two_steps_verification(password):
         case _:
             print('Opcao invalida, acao cancelada')
             return False
+
+def select_path():
+    return filedialog.askdirectory()

@@ -13,4 +13,5 @@ Este repositório contém dois programas em Python para encriptar e decriptar ar
 
 ## To Do
 
+- Capturar melhor os erros
 - Adaptar para funcionar no windows

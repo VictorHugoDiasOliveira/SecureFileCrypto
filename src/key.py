@@ -6,6 +6,5 @@ def generate_key(key_path):
         f.write(Fernet.generate_key())
 
 def load_key(key_file):
-    if os.path.exists(key_file):
-        with open(key_file, 'rb') as f:
-            return f.read()
+    with open(key_file, 'rb') as f:
+        return f.read()
