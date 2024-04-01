@@ -18,7 +18,7 @@ from src.interface import (
 import os
 
 KEY_PATH = f'/home/{os.getlogin()}/Documents/key.txt'
-ENCRYPTED_KEY_PATH = f'/home/{os.getlogin()}/Documents/Secure/key.txt.enc'
+ENCRYPTED_KEY_PATH = f'/home/{os.getlogin()}/Documents/key.txt.enc'
 
 while True:
     decision = form()
@@ -33,10 +33,12 @@ while True:
                 else:
                     if two_steps_verification(key):
                         encrypt_and_delete_files_in_directory(directory_path, key)
+                        clear_console()
                         print("Arquivos criptografados com sucesso!")
                     else:
                         continue
             else:
+                clear_console()
                 print('Pasta nao encontrada.')
 
         case '2':
@@ -49,10 +51,12 @@ while True:
                 else:
                     if two_steps_verification(key):
                         decrypt_and_delete_files_in_directory(directory_path, key)
+                        clear_console()
                         print("Arquivos descriptografados com sucesso!")
                     else:
                         continue
             else:
+                clear_console()
                 print('Pasta nao encontrada.')
 
         case '3':
@@ -60,6 +64,7 @@ while True:
             key = load_key(KEY_PATH)
             directory_path = input('Digite o caminho para a pasta que deseja encriptar: ')
             encrypt_file_names_in_directory(directory_path, key)
+            clear_console()
             print("Nomes criptografados com sucesso!")
 
         case '4':
@@ -67,14 +72,18 @@ while True:
             key = load_key(KEY_PATH)
             directory_path = input('Digite o caminho para a pasta que deseja decriptar: ')
             decrypt_file_names_in_directory(directory_path, key)
+            clear_console()
             print("Nomes decriptografados com sucesso!")
 
         case '5':
             clear_console()
             if verify_if_path_exists(KEY_PATH):
+                clear_console()
                 print('Chave ja existente.')
             else:
                 generate_key(KEY_PATH)
+                clear_console()
+                print('Chave gerada com sucesso.')
 
         case '6':
             clear_console()
@@ -84,6 +93,7 @@ while True:
             else:
                 if two_steps_verification(key):
                     encrypt_and_delete_file(KEY_PATH, key)
+                    clear_console()
                     print("Chave criptografada com sucesso!")
                 else:
                     continue
@@ -96,6 +106,7 @@ while True:
             else:
                 if two_steps_verification(key):
                     decrypt_and_delete_file(ENCRYPTED_KEY_PATH, key)
+                    clear_console()
                     print("Chave criptografada com sucesso!")
                 else:
                     continue

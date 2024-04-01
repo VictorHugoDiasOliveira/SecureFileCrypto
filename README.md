@@ -11,12 +11,6 @@ Este repositório contém dois programas em Python para encriptar e decriptar ar
 - Python 3.x instalado
 - Biblioteca pycryptodome instalada (você pode instalar executando `pip install pycryptodome` ou `pacman -S python-pycryptodome`)
 
-## Como Usar
-
-1. Execute o programa `main.py`.
-2. ...
-
 ## To Do
 
-- Melhorar as limpezas de tela e as mensagems utilizadas
 - Adaptar para funcionar no windows
