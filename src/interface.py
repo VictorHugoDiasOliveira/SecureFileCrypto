@@ -1,29 +1,31 @@
 from tkinter import filedialog
 
-def form():
-    print('1 - Encriptar Arquivos')
-    print('2 - Decriptar Arquivos')
-    print('3 - Encriptar Nomes')
-    print('4 - Decriptar Nomes')
-    print('5 - Gerar chave')
-    print('6 - Encriptar chave')
-    print('7 - Decriptar chave')
-    print('0 - Sair')
-    return input('-> ')
+class ApplicationInterface():
 
-def two_steps_verification(password):
-    print(f'Tem certeza que deseja prosseguir com a senha utilizada: {password}')
-    print('1 - Sim')
-    print('2 - Nao')
-    decision = input('-> ')
-    match decision:
-        case '1':
-            return True
-        case '2':
-            return False
-        case _:
-            print('Opcao invalida, acao cancelada')
-            return False
+    @staticmethod
+    def two_steps_verification(password):
+        print(f'Are you sure you want to proceed with the password you used: {password}')
+        print('1 - Yes')
+        print('2 - No')
+        match input('-> '):
+            case '1':
+                return True
+            case '2':
+                return False
+            case _:
+                print('Invalid Option')
+                return False
 
-def select_path():
-    return filedialog.askdirectory()
+    @staticmethod
+    def get_key_value():
+        key = input("Digite a chave AES (16, 24 ou 32 bytes): ").encode('utf-8')
+        if len(key) in [16, 24, 32]:
+            ApplicationInterface.two_steps_verification(key)
+            return key
+        else:
+            print("A chave precisa ter 16, 24 ou 32 bytes.")
+            return None
+        
+    @staticmethod
+    def select_path():
+        return filedialog.askdirectory()
