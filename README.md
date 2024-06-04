@@ -22,7 +22,3 @@ Tentativa de abertura do arquivo em pdf quando encriptado.<br>
 
 Encriptação dos nomes.<br>
 ![EncryptedFileName](images/EncryptedFileName.png)<br>
-
-## Melhorias a Implementar
-- Capturar e tratar erros de forma mais robusta
-- Implementar limpeza de tela para uma interface mais clara
