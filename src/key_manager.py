@@ -1,5 +1,3 @@
-from cryptography.fernet import Fernet
-
 class KeyManager:
 
     @staticmethod

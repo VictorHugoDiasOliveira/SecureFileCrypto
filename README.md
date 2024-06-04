@@ -1,17 +1,18 @@
 # Programas de Encriptação e Decriptação
 
 ## Visão Geral
-Este repositório contém dois programas em Python para encriptar e decriptar arquivos usando o algoritmo AES (Advanced Encryption Standard).
+Este repositório contém programas em Python para encriptar e decriptar arquivos utilizando o algoritmo AES (Advanced Encryption Standard). Além disso, permite gerar uma chave para encriptar os nomes dos arquivos. Se desejado, a chave também pode ser encriptada usando o algoritmo AES.
 
 ## Avisos
-- Certifique-se de fazer backup dos arquivos importantes antes de usar estes programas, pois os arquivos serão alterados irreversivelmente.
-- Mantenha a chave de criptografia em um local seguro e não a compartilhe com ninguém que você não confie.
+- Backup: Faça backup de arquivos importantes antes de usar estes programas, pois os arquivos serão alterados de forma irreversível.
 
 ## Pré-requisitos
 - Python 3.x instalado
-- Biblioteca pycryptodome instalada (você pode instalar executando `pip install pycryptodome` ou `pacman -S python-pycryptodome`)
+- Bibliotecas pycryptodome e tkinter
 
-## To Do
+## Melhorias a Implementar
 
-- Capturar melhor os erros
-- Adaptar para funcionar no windows
+- Capturar e tratar erros de forma mais robusta
+- Implementar limpeza de tela para uma interface mais clara
+
+![Exemplo de imagem](images/EncryptedFiles.png)
