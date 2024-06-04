@@ -22,7 +22,7 @@ if __name__ == "__main__":
             case '4':
                 FileManager.decrypt_file_names_in_directory(system.keypath)
             case '5':
-                FileManager.generate_key(system)
+                FileManager.generate_key(system.keypath)
             case '6':
                 FileManager.encrypt_key(system.keypath)
             case '7':

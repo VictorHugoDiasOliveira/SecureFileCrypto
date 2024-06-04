@@ -13,13 +13,15 @@ class System():
         else:
             System.clear = 'clear'
             System.keypath = f'home/{os.getlogin()}/Documents/key.txt'
+            
+        System.clear_console()
 
     @staticmethod
     def identify_system() -> str:
         return platform.system()
     
     @staticmethod
-    def verify_if_path_exists(path) -> bool:
+    def verify_if_path_exists(path: str) -> bool:
         if os.path.exists(path):
             return True
         return False

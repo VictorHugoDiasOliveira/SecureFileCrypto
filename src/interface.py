@@ -3,7 +3,7 @@ from tkinter import filedialog
 class ApplicationInterface():
 
     @staticmethod
-    def two_steps_verification(password):
+    def two_steps_verification(password: str) -> bool:
         print(f'Are you sure you want to proceed with the password you used: {password}')
         print('1 - Yes')
         print('2 - No')
@@ -17,15 +17,15 @@ class ApplicationInterface():
                 return False
 
     @staticmethod
-    def get_key_value():
-        key = input("Digite a chave AES (16, 24 ou 32 bytes): ").encode('utf-8')
+    def get_key_value() -> bytes|None:
+        key = input("Enter the AES key (16, 24 or 32 bytes): ").encode('utf-8')
         if len(key) in [16, 24, 32]:
             ApplicationInterface.two_steps_verification(key)
             return key
         else:
-            print("A chave precisa ter 16, 24 ou 32 bytes.")
+            print("The key must be 16, 24 or 32 bytes.")
             return None
         
     @staticmethod
-    def select_path():
+    def select_path() -> str:
         return filedialog.askdirectory()
