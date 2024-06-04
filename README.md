@@ -11,17 +11,17 @@ Este repositório contém programas em Python para encriptar e decriptar arquivo
 - Bibliotecas pycryptodome e tkinter
 
 ## Exemplo
-Uma pasta com os seguintes arquivos:
-![NotEncryptedFiles](images/NotEncryptedFiles.png)
+Uma pasta com os seguintes arquivos:<br>
+![NotEncryptedFiles](images/NotEncryptedFiles.png)<br>
 
-A mesma pasta após o algoritmo de encriptação.
-![EncryptedFiles](images/EncryptedFiles.png)
+A mesma pasta após o algoritmo de encriptação.<br>
+![EncryptedFiles](images/EncryptedFiles.png)<br>
 
-Tentativa de abertura do arquivo em pdf quando encriptado.
-![TryingToOpenEncryptedFile](images/TryingToOpenEncryptedFile.png)
+Tentativa de abertura do arquivo em pdf quando encriptado.<br>
+![TryingToOpenEncryptedFile](images/TryingToOpenEncryptedFile.png)<br>
 
-Encriptação dos nomes.
-![EncryptedFileName](images/EncryptedFileName.png)
+Encriptação dos nomes.<br>
+![EncryptedFileName](images/EncryptedFileName.png)<br>
 
 ## Melhorias a Implementar
 - Capturar e tratar erros de forma mais robusta
