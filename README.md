@@ -1,4 +1,4 @@
-# Programas de Encriptação e Decriptação
+# Programa de Encriptação e Decriptação
 
 ## Visão Geral
 Este repositório contém programas em Python para encriptar e decriptar arquivos utilizando o algoritmo AES (Advanced Encryption Standard). Além disso, permite gerar uma chave para encriptar os nomes dos arquivos. Se desejado, a chave também pode ser encriptada usando o algoritmo AES.
