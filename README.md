@@ -1,24 +1,24 @@
-# Programa de Encriptação e Decriptação
+# Encryption and Decryption Program
 
-## Visão Geral
-Este repositório contém programas em Python para encriptar e decriptar arquivos utilizando o algoritmo AES (Advanced Encryption Standard). Além disso, permite gerar uma chave para encriptar os nomes dos arquivos. Se desejado, a chave também pode ser encriptada usando o algoritmo AES.
+## Overview
+This repository contains Python programs to encrypt and decrypt files using the AES (Advanced Encryption Standard) algorithm. Furthermore, it allows you to generate a key to encrypt file names. If desired, the key can also be encrypted using the AES algorithm.
 
-## Avisos
-- Backup: Faça backup de arquivos importantes antes de usar estes programas, pois os arquivos serão alterados de forma irreversível.
+## Alerts
+- Backup: Save important files before using these programs, as the files will be irreversibly changed.
 
-## Pré-requisitos
-- Python 3.x instalado
-- Bibliotecas pycryptodome e tkinter
+## Prerequisites
+- Python 3.x installed
+- Pycryptodome and tkinter libraries
 
-## Exemplo
-Uma pasta com os seguintes arquivos:<br>
+## Example
+A folder with the following files:<br>
 ![NotEncryptedFiles](images/NotEncryptedFiles.png)<br>
 
-A mesma pasta após o algoritmo de encriptação.<br>
+The same folder after the encryption algorithm.<br>
 ![EncryptedFiles](images/EncryptedFiles.png)<br>
 
-Tentativa de abertura do arquivo em pdf quando encriptado.<br>
+Attempt to open the pdf file when encrypted.<br>
 ![TryingToOpenEncryptedFile](images/TryingToOpenEncryptedFile.png)<br>
 
-Encriptação dos nomes.<br>
+Name encryption.<br>
 ![EncryptedFileName](images/EncryptedFileName.png)<br>
